@@ -1,0 +1,197 @@
+<!--
+Google IO 2012/2013 HTML5 Slide Template
+
+Authors: Eric Bidelman <ebidel@gmail.com>
+         Luke Mahé <lukem@google.com>
+
+URL: https://code.google.com/p/io-2012-slides
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">-->
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+  <!--This one seems to work all the time, but really small on ipad-->
+  <!--<meta name="viewport" content="initial-scale=0.4">-->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="stylesheet" media="all" href="theme/css/default.css">
+  <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="theme/css/phone.css">
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
+  <script data-main="js/slides" src="js/require-1.0.8.min.js"></script>
+</head>
+<body style="opacity: 0">
+
+<slides class="layout-widescreen">
+
+  <slide class="logoslide nobackground">
+    <article class="flexbox vcenter">
+      <span><img src="http://www.dhbw-stuttgart.de/uploads/pics/DHBW_Logo.jpg"></span>
+    </article>
+  </slide>
+
+  <slide class="title-slide segue nobackground">
+    <aside class="gdbar"><img src="http://www.dhbw-stuttgart.de/uploads/pics/DHBW_Logo.jpg"></aside>
+    <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
+    <hgroup class="auto-fadein">
+      <h1 data-config-title><!-- populated from slide_config.json --></h1>
+      <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
+      <p data-config-presenter><!-- populated from slide_config.json --></p>
+    </hgroup>
+  </slide>
+
+    <slide>
+    <hgroup>
+      <h2>Was ist die Doctype Declaration?</h2>      
+    </hgroup>
+    <article>
+      <ul class="build">
+          
+        <li style="margin-bottom:50px;">zusätzlich zu den Tags, Textinhalt und Entities sollte ein HTML-Dokument eine Doctype–Deklaration in der ersten Zeile enthalten</li> 
+        <li style="margin-bottom:50px;">der Doctype ist kein HTML–Tag, sondern ein Verweis auf die <strong> Document Type Definition (DTD) </strong></li>
+        <li style="margin-bottom:50px;">die DTD ist für den Browser die Anweisung, wie die Seite dargestellt werden soll</li>
+        <li style="margin-bottom:50px;">je nachdem welche DTD verwendet wird, wird ein bestimmter Browser Modus aktiviert, diesen Vorgang nennt man <i>Doctype Sniffing</i></li>
+        <li>es existieren die Modi <em>standards(=strict), quirks</em> und <em>almost-standard</em></li>
+          
+     </ul>   
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Die Document Type Declaration im Code</h2>
+    </hgroup>
+    <article>      
+      <ul>
+        <li>
+    <pre class="prettyprint" data-lang="HTML5">
+<b>&lt;!DOCTYPE html&gt;</b>
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;title>A tiny document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1>Main heading in my document&lt;/h1&gt;
+&lt;!-- Note that it is "h" + "1", not "h" + the letters "one" -->&gt;
+&lt;p>Look Ma, I am coding &lt;abbr title="Hyper Text Markup Language"&gt;HTML&lt;/abbr&gt;.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+            </pre>
+        </li>
+     </ul>
+    </article>
+  </slide>
+
+    <slide>
+        <hgroup>
+            <h2>Standards Mode (=No Quirks Mode)</h2>
+        </hgroup>
+            <article>
+                <ul class="build">
+                    <li style="margin-bottom:50px;">durch die Deklaration &lt;!DOCTYPE html&gt; wird in moderneren Browsern immer der standards mode gewählt</li>
+                    <li style="margin-bottom:50px;">der standards mode ermöglicht es, HTML Dokumente fehlerfrei darzustellen</li>
+                </ul>       
+            </article>
+        <hgroup>
+            <h2>Quirks Mode</h2>
+        </hgroup>
+            <article>
+                <ul class="build">
+                    <li style="margin-bottom:50px;">wenn keine Doctype Declaration erfolgt, tritt der Browser womöglich in den quirks mode (=Kompatibilitätsmodus) ein</li>
+                    <li style="margin-bottom:50px;">im quirks-mode simuliert der Browser die Darstellungsweise einer älteren Browser-Version</li>
+                    <li style="margin-bottom:50px;">Internet Explorer 9 simuliert im quirks mode zum Beispiel die Umgebung eines IE5</li>
+                </ul>       
+            </article>
+    </slide>
+    
+    <slide>
+    <hgroup>
+      <h2>Video Demo</h2>      
+    </hgroup>
+    <article>
+      <iframe style="margin-top:0px;" width="560" height="280" src="https://www.youtube.com/embed/7ZSERueSMWM" frameborder="20" allowfullscreen> </iframe>
+    </article>
+  </slide>
+    
+    <slide>
+        <hgroup>
+            <h2>Almost Standard Mode (=Limited Quirks Mode)</h2>
+        </hgroup>
+        <article>
+            <ul>
+                <li style="margin-bottom:50px;">der almost standard mode ist eine Mischung zwischen standard mode und quirks mode</li>
+                <li style="margin-bottom:50px;">bis auf wenige wichtige Fehlerkorrekturen ist er dem standard mode sehr ähnlich</li>
+                <li>um den almost standard mode aufzurufen ist eine spezielle Doctype Declaration vonnöten:</li>
+               <li> <pre class="prettyprint" data-lang="HTML4">
+<b>!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd"&gt;</b>
+&lt;head&gt;
+&lt;title>An even tinier document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;p>Look Ma, I am coding &lt;abbr title="Hyper Text Markup Language"&gt;HTML&lt;/abbr&gt;.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                </pre> </li>
+            </ul>
+        </article>
+    </slide>
+    
+<slide>
+    <hgroup> 
+        <h2>Tips &amp Links</h2>
+    </hgroup>
+    <article>
+        <ul>
+            <li style="margin-bottom:50px;">über document.doctype kann man sich die gewählte Doctype Definition übergeben lassen</li>
+            <li style="margin-bottom:50px;"> <a href="https://html5.validator.nu/">hier</a> kann man den HTML Code von Internetseiten auf Konformität mit der DTD überprüfen lassen</li>
+            <li style="margin-bottom:50px;">eine Liste der verschiedenen Doctype Declarations gibt es<a href="https://developer.mozilla.org/en-US/docs/Mozilla's_DOCTYPE_sniffing"> hier</a>.</li>
+            <li>es gibt auch die Möglichkeit mehrere Doctype Declarations zu verwenden, mehr Informationen dazu <a href="https://developer.mozilla.org/en-US/docs/Using_multiple_DTDs">hier</a>.</li>
+        </ul>
+    </article>
+</slide>
+<slide>
+        <hgroup>
+            <h2>Quellen</h2>
+    </hgroup>
+    <article>
+        <ul>
+            <h3>Hauptquelle</h3>
+            
+            <li style="margin-bottom:50px;"><a href "https://hsivonen.fi/doctype/">https://hsivonen.fi/doctype/</a></li>
+            
+            <h3>Sonstige Quellen</h3>
+            
+            <li style="margin-bottom:50px;"><a href "https://developer.mozilla.org/en-US/docs/Quirks_Mode_and_Standards_Mode">https://developer.mozilla.org/en-US/docs/Quirks_Mode_and_Standards_Mode</a></li>
+            <li style="margin-bottom:50px;"><a href "http://www.data2type.de/xml-xslt-xslfo/xml/xml-in-a-nutshell/dokumenttyp-definitionen/">http://www.data2type.de/xml-xslt-xslfo/xml/xml-in-a-nutshell/dokumenttyp-definitionen/</a></li>            
+            <li style="margin-bottom:50px;"><a href "http://wiki.selfhtml.org/wiki/HTML/Dokumentstruktur_und_Aufbau#Dokumenttyp-Deklaration">http://wiki.selfhtml.org/wiki/HTML/Dokumentstruktur_und_Aufbau#Dokumenttyp-Deklaration</a></li>
+            <li style="margin-bottom:50px;"><a href "http://alistapart.com/article/doctype">http://alistapart.com/article/doctype</a></li>
+         
+        </ul>
+    </article>
+</slide>
+
+  <slide class="backdrop"></slide>
+
+</slides>
+
+<script>
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-XXXXXXXX-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+<!--[if IE]>
+  <script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+  <script>CFInstall.check({mode: 'overlay'});</script>
+<![endif]-->
+</body>
+</html>
